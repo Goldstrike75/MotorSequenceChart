@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Page Title</title>
+  </head>
+
+  <!-- center images and tables -->
+  <style>
+    img {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    table.center {
+        margin-left: auto; 
+        margin-right: auto;
+    }
+  </style>
+
+  <body>
+
+    <!-- top row of the sequence chart always visible -->
+    <img src="Motor Sequence Chart banner.png" style="display: block;">
+    
+    <!-- individual rows of the sequence chart that can be visible or not
+      initially only 1A, 1C and 2B are visible -->
+    <img id="1A" src="Motor 1A.png" style="display: block;">
+    <img id="1B" src="Motor 1B.png" style="display: none;">
+    <img id="1C" src="Motor 1C.png" style="display: block;">
+    <img id="1D" src="Motor 1D.png" style="display: none;">
+    <img id="1E" src="Motor 1E.png" style="display: none;">
+    <img id="2B" src="Motor 2B.png" style="display: block;">
+    <img id="2C" src="Motor 2C.png" style="display: none;">
+    <img id="3B" src="Motor 3B.png" style="display: none;">
+    <img id="3C" src="Motor 3C.png" style="display: none;">
+    <img id="3D" src="Motor 3D.png" style="display: none;">
+    <img id="3E" src="Motor 3E.png" style="display: none;">
+    <img id="4A" src="Motor 4A.png" style="display: none;">
+    <img id="4B" src="Motor 4B.png" style="display: none;">
+    <img id="4C" src="Motor 4C.png" style="display: none;">
+    <img id="4D" src="Motor 4D.png" style="display: none;">
+    <img id="4E" src="Motor 4E.png" style="display: none;">
+
+    <p></p>
+
+    <!-- Table of check boxes to populate the Motor Sequence Chart -->
+    <table border="1" class="center">
+      <caption style="caption-side:bottom">Click on boxes to populate the<br>Motor Sequence Chart</caption> 
+      <tr>
+        <td style='text-align:center'><b>POSITION</b></td>
+        <td style='width:50px; text-align:center'><b>A</b></td>
+        <td style='width:50px; text-align:center'><b>B</b></td>
+        <td style='width:50px; text-align:center'><b>C</b></td>
+        <td style='width:50px; text-align:center'><b>D</b></td>
+        <td style='width:50px; text-align:center'><b>E</b></td>
+      </tr>
+
+      <tr>
+        <td style='text-align:center'><b>#1</b></td>
+        <td style='text-align:center'><input type="checkbox" id="cb_1A" onclick="toggleVisibility('1A')" checked></td>
+        <td style='text-align:center'><input type="checkbox" id="cb_1B" onclick="toggleVisibility('1B')"></td>
+        <td style='text-align:center'><input type="checkbox" id="cb_1C" onclick="toggleVisibility('1C')" checked></td>
+        <td style='text-align:center'><input type="checkbox" id="cb_1D" onclick="toggleVisibility('1D')"></td>
+        <td style='text-align:center'><input type="checkbox" id="cb_1E" onclick="toggleVisibility('1E')"></td>
+      </tr>
+
+      <tr>
+        <td style='text-align:center'><b>#2</b></td>
+        <td></td>
+        <td style='text-align:center'><input type="checkbox" id="cb_2B" onclick="toggleVisibility('2B')" checked></td>
+        <td style='text-align:center'><input type="checkbox" id="cb_2C" onclick="toggleVisibility('2C')"></td>
+        <td></td>
+        <td></td>
+      </tr>
+
+      <tr>
+        <td style='text-align:center'><b>#3</b></td>
+        <td></td>
+        <td style='text-align:center'><input type="checkbox" id="cb_3B" onclick="toggleVisibility('3B')"></td>
+        <td style='text-align:center'><input type="checkbox" id="cb_3C" onclick="toggleVisibility('3C')"></td>
+        <td style='text-align:center'><input type="checkbox" id="cb_3D" onclick="toggleVisibility('3D')"></td>
+        <td style='text-align:center'><input type="checkbox" id="cb_3E" onclick="toggleVisibility('3E')"></td>
+      </tr>
+
+      <tr>
+        <td style='text-align:center'><b>#3 &frac12</b></td>
+        <!-- empty row -->
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td style='text-align:center'><b>#4</b></td>
+        <td style='text-align:center'><input type="checkbox" id="cb_4A" onclick="toggleVisibility('4A')"></td>
+        <td style='text-align:center'><input type="checkbox" id="cb_4B" onclick="toggleVisibility('4B')"></td>
+        <td style='text-align:center'><input type="checkbox" id="cb_4C" onclick="toggleVisibility('4C')"></td>
+        <td style='text-align:center'><input type="checkbox" id="cb_4D" onclick="toggleVisibility('4D')"></td>
+        <td style='text-align:center'><input type="checkbox" id="cb_4E" onclick="toggleVisibility('4E')"></td>
+      </tr>
+    </table>
+    
+    <!-- routine to show or hide an image in the chart -->
+    <script>
+      function toggleVisibility(row) {
+        var x = document.getElementById(row);
+        if (x.style.display === "none") {
+          x.style.display = "block";
+        } else {
+          x.style.display = "none";
+        }
+
+        // Use setTimeout to allow DOM updates before scrolling
+        setTimeout(() => {
+          window.scrollTo(0, document.body.scrollHeight);
+        }, 0);
+        
+      }
+    </script>
+
+  </body>
+</html> 
